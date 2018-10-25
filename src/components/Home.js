@@ -4,7 +4,7 @@ import tt from "../assets/images/tt.png";
 class Home extends Component {
   render() {
     return (
-      <div class="page home">
+      <div className="page home">
         <img className="home__title" src={tt} alt="Prism Dream Factory Title" />
       </div>
     );

@@ -3,8 +3,8 @@ import React, { Component } from "react";
 class About extends Component {
   render() {
     return (
-      <div class="page about">
-        <div class="page__container">
+      <div className="page about">
+        <div className="page__container">
           <h2>Living the Dream</h2>
           <p>
             Prism Dream Factory is a LA based marketing strategy group that
