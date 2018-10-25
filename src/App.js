@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./App.css";
+import "./App.scss";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Home from "./components/Home";
 import Work from "./components/Work";
@@ -30,7 +30,7 @@ class App extends Component {
           <Link to="/work" className="app__link mod--bottom-left">
             Work
           </Link>
-          <Link to="/contact" claLinkssName="app__link mod--bottom-right">
+          <Link to="/contact" className="app__link mod--bottom-right">
             Contact
           </Link>
 
