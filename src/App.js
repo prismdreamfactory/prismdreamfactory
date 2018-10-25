@@ -1,25 +1,27 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import bg from "./assets/images/bg.jpg";
+import logo from "./assets/images/logo.png";
+import tt from "./assets/images/tt.png";
+import "./App.css";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="app">
+        <div className="app__bg" style={{ backgroundImage: `url(${bg})` }} />
+
+        <img className="app__logo" src={logo} alt="Prism Dream Factory Logo" />
+        <img className="home__title" src={tt} alt="Prism Dream Factory Title" />
+
+        <a href="/" className="app__link">
+          Prism Dream Factory
+        </a>
+        <a href="/about" className="app__link">
+          About
+        </a>
+        <a href="/contact" className="app__link">
+          Contact
+        </a>
       </div>
     );
   }
