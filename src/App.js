@@ -37,16 +37,16 @@ class App extends Component {
 
           <nav className="nav--desktop">
             <NavLink to="/" className="app__link mod--top-left">
-              Prism Dream Factory
+              <span>Prism Dream Factory</span>{" "}
             </NavLink>
             <NavLink to="/about" className="app__link mod--top-right">
-              About
+              <span>About</span>
             </NavLink>
             <NavLink to="/work" className="app__link mod--bottom-left">
-              Work
+              <span>Work</span>
             </NavLink>
             <NavLink to="/contact" className="app__link mod--bottom-right">
-              Contact
+              <span>Contact</span>
             </NavLink>
           </nav>
 
