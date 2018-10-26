@@ -85,10 +85,18 @@ class App extends Component {
             </div>
           </div>
 
-          <Route path="/" exact component={Home} />
-          <Route path="/work" exact component={Work} />
-          <Route path="/about" component={About} />
-          <Route path="/contact" component={Contact} />
+          <Route path="/" exact>
+            {({ match }) => <Home show={match !== null} />}
+          </Route>
+          <Route path="/work">
+            {({ match }) => <Work show={match !== null} />}
+          </Route>
+          <Route path="/about">
+            {({ match }) => <About show={match !== null} />}
+          </Route>
+          <Route path="/contact">
+            {({ match }) => <Contact show={match !== null} />}
+          </Route>
         </div>
       </Router>
     );
