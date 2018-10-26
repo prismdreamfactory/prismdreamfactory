@@ -8,8 +8,6 @@ import Contact from "./components/Contact";
 import bg from "./assets/images/bg.jpg";
 import logo from "./assets/images/logo.png";
 
-import { isBrowser, isMobile } from "react-device-detect";
-
 class App extends Component {
   constructor(props) {
     super(props);
