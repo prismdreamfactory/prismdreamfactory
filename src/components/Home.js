@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import { Transition } from "react-transition-group";
 import { TweenMax } from "gsap/all";
-import tt from "../assets/images/tt.png";
+import DrawSVGPlugin from "../assets/gsap-bonus/DrawSVGPlugin";
+import ReactSVG from "react-svg";
+// import tt from "../assets/images/tt.png";
+import tt from "../assets/images/tt.svg";
 
 class Home extends Component {
   constructor(props) {
@@ -31,12 +34,13 @@ class Home extends Component {
         addEndListener={this.addEndListener}
       >
         <div className="page home">
-          <img
+          {/*<img
             className="home__title"
             src={tt}
             alt="Prism Dream Factory Title"
             ref={el => (this.title = el)}
-          />
+          />*/}
+          <ReactSVG src={tt} className="svg" />
         </div>
       </Transition>
     );
