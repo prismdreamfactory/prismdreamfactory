@@ -29,11 +29,13 @@ class App extends Component {
         <div className="app">
           <div className="app__bg" style={{ backgroundImage: `url(${bg})` }} />
 
-          <img
-            className="app__logo"
-            src={logo}
-            alt="Prism Dream Factory Logo"
-          />
+          <a href="/">
+            <img
+              className="app__logo"
+              src={logo}
+              alt="Prism Dream Factory Logo"
+            />
+          </a>
 
           <nav className="nav--desktop">
             <NavLink to="/" className="app__link mod--top-left">
@@ -51,16 +53,24 @@ class App extends Component {
           </nav>
 
           <nav className={isOpen ? "nav--mobile mod--open" : "nav--mobile"}>
-            <NavLink to="/" className="app__link">
+            <NavLink to="/" className="app__link" onClick={this.toggleMenu}>
               Home
             </NavLink>
-            <NavLink to="/about" className="app__link">
-              About
-            </NavLink>
-            <NavLink to="/work" className="app__link">
+            <NavLink to="/work" className="app__link" onClick={this.toggleMenu}>
               Work
             </NavLink>
-            <NavLink to="/contact" className="app__link">
+            <NavLink
+              to="/about"
+              className="app__link"
+              onClick={this.toggleMenu}
+            >
+              About
+            </NavLink>
+            <NavLink
+              to="/contact"
+              className="app__link"
+              onClick={this.toggleMenu}
+            >
               Contact
             </NavLink>
           </nav>
