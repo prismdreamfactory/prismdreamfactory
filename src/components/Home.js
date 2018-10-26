@@ -3,7 +3,6 @@ import { Transition } from "react-transition-group";
 import { TweenMax } from "gsap/all";
 import DrawSVGPlugin from "../assets/gsap-bonus/DrawSVGPlugin";
 import ReactSVG from "react-svg";
-// import tt from "../assets/images/tt.png";
 import tt from "../assets/images/tt.svg";
 
 class Home extends Component {
@@ -13,7 +12,9 @@ class Home extends Component {
   }
 
   onEntered = () => {
-    TweenMax.to(this.title, 0.5, {});
+    TweenMax.to(this.title, 0.5, {
+      drawSVG: "100%"
+    });
   };
 
   addEndListener = (node, done) => {
@@ -34,13 +35,11 @@ class Home extends Component {
         addEndListener={this.addEndListener}
       >
         <div className="page home">
-          {/*<img
-            className="home__title"
+          <ReactSVG
             src={tt}
-            alt="Prism Dream Factory Title"
+            className="svg home__title"
             ref={el => (this.title = el)}
-          />*/}
-          <ReactSVG src={tt} className="svg" />
+          />
         </div>
       </Transition>
     );

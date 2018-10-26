@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import "./App.scss";
-import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  NavLink,
+  Link
+} from "react-router-dom";
 import Home from "./components/Home";
 import Work from "./components/Work";
 import About from "./components/About";
@@ -27,17 +32,17 @@ class App extends Component {
         <div className="app">
           <div className="app__bg" style={{ backgroundImage: `url(${bg})` }} />
 
-          <a href="/">
+          <Link to="/">
             <img
               className="app__logo"
               src={logo}
               alt="Prism Dream Factory Logo"
             />
-          </a>
+          </Link>
 
           <nav className="nav--desktop">
             <NavLink to="/" className="app__link mod--top-left">
-              <span>Prism Dream Factory</span>{" "}
+              <span>Prism Dream Factory</span>
             </NavLink>
             <NavLink to="/about" className="app__link mod--top-right">
               <span>About</span>
