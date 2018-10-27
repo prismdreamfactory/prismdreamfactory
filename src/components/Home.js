@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Transition } from "react-transition-group";
-import { TweenMax } from "gsap/all";
+import { TweenMax, TimelineMax } from "gsap/all";
 import DrawSVGPlugin from "../assets/gsap-bonus/DrawSVGPlugin";
 import ReactSVG from "react-svg";
 import tt from "../assets/images/tt.svg";
@@ -8,20 +8,31 @@ import tt from "../assets/images/tt.svg";
 class Home extends Component {
   constructor(props) {
     super(props);
-    this.title = null;
+    this.overlay = null;
+    this.content = null;
   }
 
-  onEntered = () => {
-    TweenMax.to(this.title, 0.5, {
-      drawSVG: "100%"
-    });
+  onEnter = () => {
+    const homeTL = new TimelineMax()
+      .set(this.overlay, { autoAlpha: 1 })
+      .set(this.content, { autoAlpha: 0 })
+      .to(this.overlay, 1, {
+        skewX: 0,
+        x: "100%",
+        transformOrigin: "0% 100%"
+      })
+      .to(this.content, 0.3, {
+        autoAlpha: 1
+      })
+      .to(this.overlay, 1, {
+        autoAlpha: 0
+      })
+      .play();
   };
 
-  addEndListener = (node, done) => {
-    TweenMax.to(node, 0.5, {
-      autoAlpha: this.props.show ? 1 : 0,
-      y: this.props.show ? 0 : 50,
-      onComplete: done
+  onExit = () => {
+    TweenMax.to(this.content, 1, {
+      autoAlpha: 0
     });
   };
 
@@ -31,15 +42,17 @@ class Home extends Component {
         unmountOnExit
         in={this.props.show}
         timeout={1000}
-        onEntered={this.onEntered}
-        addEndListener={this.addEndListener}
+        onEnter={this.onEnter}
+        onExit={this.onExit}
       >
         <div className="page home">
-          <ReactSVG
-            src={tt}
-            className="svg home__title"
-            ref={el => (this.title = el)}
+          <div
+            className="page__overlay page__overlay--bottomright"
+            ref={el => (this.overlay = el)}
           />
+          <div className="page__container" ref={el => (this.content = el)}>
+            <ReactSVG src={tt} className="svg home__title" />
+          </div>
         </div>
       </Transition>
     );

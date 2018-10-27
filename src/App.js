@@ -6,6 +6,7 @@ import {
   NavLink,
   Link
 } from "react-router-dom";
+import { TimelineMax } from "gsap/all";
 import Home from "./components/Home";
 import Work from "./components/Work";
 import About from "./components/About";
@@ -16,12 +17,26 @@ import logo from "./assets/images/logo.png";
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { isOpen: false };
+    this.state = {
+      isOpen: false
+    };
+    this.app = null;
+    this.logo = null;
+  }
+
+  componentDidMount() {
+    const siteTL = new TimelineMax();
+
+    siteTL
+      .fromTo(this.app, 0.5, { autoAlpha: 0 }, { autoAlpha: 1 })
+      .to(this.logo, 0.3, { autoAlpha: 1 });
   }
 
   // Toggle mobile navigation
   toggleMenu = () => {
-    this.setState(state => ({ isOpen: !state.isOpen }));
+    this.setState(state => ({
+      isOpen: !state.isOpen
+    }));
   };
 
   render() {
@@ -29,16 +44,24 @@ class App extends Component {
 
     return (
       <Router>
-        <div className="app">
-          <div className="app__bg" style={{ backgroundImage: `url(${bg})` }} />
+        <div className="app" ref={el => (this.app = el)}>
+          <div
+            className="app__bg"
+            style={{
+              backgroundImage: `url(${bg})`
+            }}
+          />
 
-          <Link to="/">
-            <img
-              className="app__logo"
-              src={logo}
-              alt="Prism Dream Factory Logo"
-            />
-          </Link>
+          <header className="app__header">
+            <Link to="/">
+              <img
+                className="app__logo"
+                src={logo}
+                alt="Prism Dream Factory Logo"
+                ref={el => (this.logo = el)}
+              />
+            </Link>
+          </header>
 
           <nav className="nav--desktop">
             <NavLink to="/" className="app__link mod--top-left">
@@ -78,7 +101,7 @@ class App extends Component {
             </NavLink>
           </nav>
 
-          <div class="nav__toggle">
+          <div className="nav__toggle">
             <div
               className={isOpen ? "nav__icon mod--open" : "nav__icon"}
               onClick={this.toggleMenu}

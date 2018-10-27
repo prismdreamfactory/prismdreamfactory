@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Transition } from "react-transition-group";
-import { TweenMax } from "gsap/all";
+import { TweenMax, TimelineMax } from "gsap/all";
 
 const projects = [
   "http://placehold.it/320x180?text=+",
@@ -15,21 +15,41 @@ const projects = [
 ];
 
 class Work extends Component {
-  onEnter = () => {};
+  constructor(props) {
+    super(props);
+    this.overlay = null;
+    this.content = null;
+  }
 
-  addEndListener = (node, done) => {
-    TweenMax.to(node, 0.5, {
-      autoAlpha: this.props.show ? 1 : 0,
-      y: this.props.show ? 0 : 50,
-      onComplete: done
+  onEnter = () => {
+    const workTL = new TimelineMax()
+      .set(this.overlay, { autoAlpha: 1 })
+      .set(this.content, { autoAlpha: 0 })
+      .to(this.overlay, 1, {
+        skewX: 0,
+        x: "100%",
+        transformOrigin: "0% 100%"
+      })
+      .to(this.content, 0.3, {
+        autoAlpha: 1
+      })
+      .to(this.overlay, 1, {
+        autoAlpha: 0
+      })
+      .play();
+  };
+
+  onExit = () => {
+    TweenMax.to(this.content, 0.3, {
+      autoAlpha: 0
     });
   };
 
   renderProjects() {
     return (
       <div className="grid">
-        {projects.map(project => (
-          <div className="grid__item">
+        {projects.map((project, index) => (
+          <div className="grid__item" key={index}>
             <a className="grid__link" href="/">
               <img className="grid__img" src={project} alt="Project" />
             </a>
@@ -46,10 +66,16 @@ class Work extends Component {
         in={this.props.show}
         timeout={1000}
         onEnter={this.onEnter}
-        addEndListener={this.addEndListener}
+        onExit={this.onExit}
       >
         <div className="page work">
-          <div className="page__container">{this.renderProjects()}</div>
+          <div
+            className="page__overlay page__overlay--topright"
+            ref={el => (this.overlay = el)}
+          />
+          <div className="page__container" ref={el => (this.content = el)}>
+            {this.renderProjects()}
+          </div>
         </div>
       </Transition>
     );
