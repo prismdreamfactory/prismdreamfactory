@@ -13,6 +13,7 @@
 }
 
 .app__bg {
+  width: 100%;
   height: 100%;
   background-size: contain;
   position: absolute;
@@ -20,6 +21,10 @@
   left: 0;
   right: 0;
   bottom: 0;
+}
+
+.app__bg--video {
+  object-fit: cover;
 }
 
 .app__logo {
@@ -31,10 +36,11 @@
   text-align: center;
   z-index: 1;
   opacity: 0;
-  transition: 1s ease-in-out;
+  transition: 0.5s ease-in-out;
 
   &:hover {
-    transform: rotate(360deg);
+    transform: rotate(120deg);
+    opacity: 0.8;
   }
 }
 
@@ -251,7 +257,9 @@
   background-color: #000;
   width: 100%;
   height: 100%;
-  opacity: 0;
+  opacity: 0.6;
+  -webkit-backface-visibility: hidden;
+  outline: 1px solid transparent;
   // z-index: -1;
 
   &--topleft {

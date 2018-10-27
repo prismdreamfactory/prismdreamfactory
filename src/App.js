@@ -12,6 +12,7 @@ import Work from "./components/Work";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import bg from "./assets/images/bg.jpg";
+import bgVideo from "./assets/videos/bg.mp4";
 import logo from "./assets/images/logo.png";
 
 class App extends Component {
@@ -45,11 +46,23 @@ class App extends Component {
     return (
       <Router>
         <div className="app" ref={el => (this.app = el)}>
-          <div
+          {/*}<div
             className="app__bg"
             style={{
               backgroundImage: `url(${bg})`
             }}
+          />*/}
+
+          <video
+            className="app__bg app__bg--video"
+            width="1280"
+            height="720"
+            autoPlay
+            loop
+            muted
+            playsInline
+            poster={bg}
+            src={bgVideo}
           />
 
           <header className="app__header">
