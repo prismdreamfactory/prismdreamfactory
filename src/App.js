@@ -7,6 +7,7 @@ import {
   Link
 } from "react-router-dom";
 import { TimelineMax } from "gsap/all";
+import { Video } from "cloudinary-react";
 import Home from "./components/Home";
 import Work from "./components/Work";
 import About from "./components/About";
@@ -53,16 +54,16 @@ class App extends Component {
             }}
           />*/}
 
-          <video
+          <Video
             className="app__bg app__bg--video"
-            width="1280"
-            height="720"
             autoPlay
             loop
             muted
             playsInline
+            cloudName="ncgstfu"
+            publicId="prismdreamfactory/bg"
             poster={bg}
-            src={bgVideo}
+            quality="90:qmax_20"
           />
 
           <header className="app__header">

@@ -23,7 +23,7 @@ class Work extends Component {
 
   onEnter = () => {
     const workTL = new TimelineMax()
-      .set(this.overlay, { autoAlpha: 0.5 })
+      .set(this.overlay, { autoAlpha: 0.3 })
       .set(this.content, { autoAlpha: 0 })
       .to(this.overlay, 1, {
         skewX: 0,

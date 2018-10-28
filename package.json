@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "cloudinary-react": "^1.0.6",
     "gsap": "^2.0.2",
     "node-sass": "^4.9.4",
     "react": "^16.6.0",

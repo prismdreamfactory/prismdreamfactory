@@ -11,7 +11,7 @@ class About extends Component {
 
   onEnter = () => {
     const aboutTL = new TimelineMax()
-      .set(this.overlay, { autoAlpha: 0.5 })
+      .set(this.overlay, { autoAlpha: 0.3 })
       .set(this.content, { autoAlpha: 0 })
       .to(this.overlay, 1, {
         skewX: 0,
