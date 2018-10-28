@@ -19,6 +19,7 @@ class Work extends Component {
     super(props);
     this.overlay = null;
     this.content = null;
+    this.gridItems = [];
   }
 
   onEnter = () => {
@@ -37,7 +38,15 @@ class Work extends Component {
       })
       .to(this.overlay, 1, {
         autoAlpha: 0
-      });
+      })
+      .staggerFromTo(
+        this.gridItems,
+        0.3,
+        { autoAlpha: 0 },
+        { autoAlpha: 1 },
+        0.04,
+        "-=0.75"
+      );
   };
 
   onExit = () => {
@@ -50,7 +59,11 @@ class Work extends Component {
     return (
       <div className="grid">
         {projects.map((project, index) => (
-          <div className="grid__item" key={index}>
+          <div
+            className="grid__item"
+            key={index}
+            ref={el => (this.gridItems[index] = el)}
+          >
             <a className="grid__link" href="/">
               <img className="grid__img" src={project} alt="Project" />
             </a>
