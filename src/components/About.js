@@ -10,7 +10,9 @@ class About extends Component {
   }
 
   onEnter = () => {
-    const aboutTL = new TimelineMax()
+    const aboutTL = new TimelineMax();
+
+    aboutTL
       .set(this.overlay, { autoAlpha: 0.3 })
       .set(this.content, { autoAlpha: 0 })
       .to(this.overlay, 1, {
@@ -23,8 +25,7 @@ class About extends Component {
       })
       .to(this.overlay, 1, {
         autoAlpha: 0
-      })
-      .play();
+      });
   };
 
   onExit = () => {

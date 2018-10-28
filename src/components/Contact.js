@@ -10,7 +10,9 @@ class Contact extends Component {
   }
 
   onEnter = () => {
-    const contactTL = new TimelineMax()
+    const contactTL = new TimelineMax();
+
+    contactTL
       .set(this.overlay, { autoAlpha: 0.3 })
       .set(this.content, { autoAlpha: 0 })
       .to(this.overlay, 1, {
@@ -23,8 +25,7 @@ class Contact extends Component {
       })
       .to(this.overlay, 1, {
         autoAlpha: 0
-      })
-      .play();
+      });
   };
 
   onExit = () => {

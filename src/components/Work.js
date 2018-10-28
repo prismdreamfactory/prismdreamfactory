@@ -3,15 +3,15 @@ import { Transition } from "react-transition-group";
 import { TweenMax, TimelineMax } from "gsap";
 
 const projects = [
-  "http://placehold.it/320x180?text=+",
-  "http://placehold.it/320x180?text=+",
-  "http://placehold.it/320x180?text=+",
-  "http://placehold.it/320x180?text=+",
-  "http://placehold.it/320x180?text=+",
-  "http://placehold.it/320x180?text=+",
-  "http://placehold.it/320x180?text=+",
-  "http://placehold.it/320x180?text=+",
-  "http://placehold.it/320x180?text=+"
+  "https://placehold.it/320x180?text=+",
+  "https://placehold.it/320x180?text=+",
+  "https://placehold.it/320x180?text=+",
+  "https://placehold.it/320x180?text=+",
+  "https://placehold.it/320x180?text=+",
+  "https://placehold.it/320x180?text=+",
+  "https://placehold.it/320x180?text=+",
+  "https://placehold.it/320x180?text=+",
+  "https://placehold.it/320x180?text=+"
 ];
 
 class Work extends Component {
@@ -22,7 +22,9 @@ class Work extends Component {
   }
 
   onEnter = () => {
-    const workTL = new TimelineMax()
+    const workTL = new TimelineMax();
+
+    workTL
       .set(this.overlay, { autoAlpha: 0.3 })
       .set(this.content, { autoAlpha: 0 })
       .to(this.overlay, 1, {
@@ -35,8 +37,7 @@ class Work extends Component {
       })
       .to(this.overlay, 1, {
         autoAlpha: 0
-      })
-      .play();
+      });
   };
 
   onExit = () => {

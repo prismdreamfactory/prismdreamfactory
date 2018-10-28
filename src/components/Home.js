@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Transition } from "react-transition-group";
 import { TweenMax, TimelineMax } from "gsap";
-import DrawSVGPlugin from "../assets/gsap-bonus/DrawSVGPlugin";
 import ReactSVG from "react-svg";
 import tt from "../assets/images/tt.svg";
 
@@ -13,7 +12,9 @@ class Home extends Component {
   }
 
   onEnter = () => {
-    const homeTL = new TimelineMax()
+    const homeTL = new TimelineMax();
+
+    homeTL
       .set(this.overlay, { autoAlpha: 0.3 })
       .set(this.content, { autoAlpha: 0 })
       .to(this.overlay, 1, {
@@ -26,8 +27,7 @@ class Home extends Component {
       })
       .to(this.overlay, 1, {
         autoAlpha: 0
-      })
-      .play();
+      });
   };
 
   onExit = () => {
