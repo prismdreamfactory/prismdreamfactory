@@ -23,6 +23,9 @@ class App extends Component {
     };
     this.app = null;
     this.logo = null;
+    this.mobileNav = null;
+    this.mobileNavLinks = [];
+    this.mobileNavTL = new TimelineMax({ paused: true });
   }
 
   componentDidMount() {
@@ -31,6 +34,23 @@ class App extends Component {
     siteTL
       .fromTo(this.app, 0.5, { autoAlpha: 0 }, { autoAlpha: 1 })
       .to(this.logo, 0.3, { autoAlpha: 1 });
+
+    this.mobileNavTL
+      .addLabel("mobile")
+      .fromTo(
+        this.mobileNav,
+        0.2,
+        { autoAlpha: 0, height: 0 },
+        { autoAlpha: 1, height: "100%" }
+      )
+      .staggerFromTo(
+        this.mobileNavLinks,
+        0.2,
+        { autoAlpha: 0 },
+        { autoAlpha: 1 },
+        0.03,
+        "mobile"
+      );
   }
 
   // Toggle mobile navigation
@@ -38,6 +58,12 @@ class App extends Component {
     this.setState(state => ({
       isOpen: !state.isOpen
     }));
+
+    if (!this.state.isOpen) {
+      this.mobileNavTL.play();
+    } else {
+      this.mobileNavTL.reverse();
+    }
   };
 
   render() {
@@ -91,27 +117,54 @@ class App extends Component {
             </NavLink>
           </nav>
 
-          <nav className={isOpen ? "nav--mobile mod--open" : "nav--mobile"}>
-            <NavLink to="/" className="app__link" onClick={this.toggleMenu}>
-              Home
-            </NavLink>
-            <NavLink to="/work" className="app__link" onClick={this.toggleMenu}>
-              Work
-            </NavLink>
-            <NavLink
-              to="/about"
-              className="app__link"
-              onClick={this.toggleMenu}
+          <nav className="nav--mobile" ref={el => (this.mobileNav = el)}>
+            <div
+              className="app__link-wrapper"
+              ref={el => this.mobileNavLinks.push(el)}
             >
-              About
-            </NavLink>
-            <NavLink
-              to="/contact"
-              className="app__link"
-              onClick={this.toggleMenu}
+              <Link
+                to="/"
+                className="app__link"
+                onClick={this.toggleMenu}
+                ref={el => this.mobileNavLinks.push(el)}
+              >
+                Home
+              </Link>
+            </div>
+            <div
+              className="app__link-wrapper"
+              ref={el => this.mobileNavLinks.push(el)}
             >
-              Contact
-            </NavLink>
+              <Link
+                to="/work"
+                className="app__link"
+                onClick={this.toggleMenu}
+                ref={el => this.mobileNavLinks.push(el)}
+              >
+                Work
+              </Link>
+            </div>
+            <div
+              className="app__link-wrapper"
+              ref={el => this.mobileNavLinks.push(el)}
+            >
+              <Link to="/about" className="app__link" onClick={this.toggleMenu}>
+                About
+              </Link>
+            </div>
+            <div
+              className="app__link-wrapper"
+              ref={el => this.mobileNavLinks.push(el)}
+            >
+              <Link
+                to="/contact"
+                className="app__link"
+                onClick={this.toggleMenu}
+                ref={el => this.mobileNavLinks.push(el)}
+              >
+                Contact
+              </Link>
+            </div>
           </nav>
 
           <div className="nav__toggle">

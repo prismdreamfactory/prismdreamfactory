@@ -110,6 +110,10 @@
   }
 }
 
+.app__link-wrapper {
+  margin: 1rem;
+}
+
 .app__link {
   position: absolute;
   color: #fff;
@@ -155,18 +159,12 @@
   z-index: 10;
   height: 0;
   transition: 1s ease;
-  display: none;
+  display: flex;
+  opacity: 0;
 
   .app__link {
     margin: 1rem;
     position: relative;
-  }
-
-  @media (max-width: 767px) {
-    &.mod--open {
-      display: flex;
-      height: 100%;
-    }
   }
 }
 
