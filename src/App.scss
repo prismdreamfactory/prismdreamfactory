@@ -95,6 +95,15 @@
   &:hover > span:after {
     transform: translate(0, 0);
   }
+
+  &.active {
+    &:before,
+    &:after,
+    & > span:before,
+    & > span:after {
+      transform: translate(0, 0);
+    }
+  }
 }
 
 .nav--desktop .app__link,

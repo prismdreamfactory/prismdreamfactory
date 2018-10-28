@@ -103,7 +103,7 @@ class App extends Component {
           </header>
 
           <nav className="nav--desktop">
-            <NavLink to="/" className="app__link mod--top-left">
+            <NavLink to="/" className="app__link mod--top-left" exact>
               <span>Prism Dream Factory</span>
             </NavLink>
             <NavLink to="/about" className="app__link mod--top-right">
