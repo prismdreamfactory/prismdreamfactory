@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Transition } from "react-transition-group";
-import { TweenMax, TimelineMax } from "gsap/all";
+import { TweenMax, TimelineMax } from "gsap";
 
 class Contact extends Component {
   constructor(props) {

@@ -6,14 +6,13 @@ import {
   NavLink,
   Link
 } from "react-router-dom";
-import { TimelineMax } from "gsap/all";
+import { TimelineMax } from "gsap";
 import { Video } from "cloudinary-react";
 import Home from "./components/Home";
 import Work from "./components/Work";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import bg from "./assets/images/bg.jpg";
-import bgVideo from "./assets/videos/bg.mp4";
 import logo from "./assets/images/logo.png";
 
 class App extends Component {

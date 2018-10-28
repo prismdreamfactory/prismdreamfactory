@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Transition } from "react-transition-group";
-import { TweenMax, TimelineMax } from "gsap/all";
+import { TweenMax, TimelineMax } from "gsap";
 import DrawSVGPlugin from "../assets/gsap-bonus/DrawSVGPlugin";
 import ReactSVG from "react-svg";
 import tt from "../assets/images/tt.svg";
