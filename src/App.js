@@ -60,7 +60,7 @@ class App extends Component {
             loop
             muted
             playsInline
-            cloudName="ncgstfu"
+            cloudName="prismdreamfactory"
             publicId="prismdreamfactory/bg"
             poster={bg}
             quality="90:qmax_20"
