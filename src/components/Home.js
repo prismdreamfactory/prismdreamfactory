@@ -17,10 +17,8 @@ class Home extends Component {
     homeTL
       .set(this.overlay, { autoAlpha: 0.3 })
       .set(this.content, { autoAlpha: 0 })
-      .to(this.overlay, 1, {
-        skewX: 0,
-        x: "100%",
-        transformOrigin: "0% 100%"
+      .from(this.overlay, 1, {
+        y: "100%"
       })
       .to(this.content, 0.3, {
         autoAlpha: 1
@@ -46,10 +44,7 @@ class Home extends Component {
         onExit={this.onExit}
       >
         <div className="page home">
-          <div
-            className="page__overlay page__overlay--bottomright"
-            ref={el => (this.overlay = el)}
-          />
+          <div className="page__overlay" ref={el => (this.overlay = el)} />
           <div className="page__container" ref={el => (this.content = el)}>
             <ReactSVG src={tt} className="svg home__title" />
           </div>

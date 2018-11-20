@@ -9,10 +9,12 @@ import {
 import { TimelineMax } from "gsap";
 import { Video } from "cloudinary-react";
 import Home from "./components/Home";
+import Services from "./components/Services";
 import Work from "./components/Work";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import bg from "./assets/images/bg.jpg";
+import bgVideo from "./assets/videos/bg.mp4";
 import logo from "./assets/images/logo.png";
 
 class App extends Component {
@@ -79,7 +81,7 @@ class App extends Component {
             }}
           />*/}
 
-          <Video
+          {/*}<Video
             className="app__bg app__bg--video"
             autoPlay
             loop
@@ -89,6 +91,15 @@ class App extends Component {
             publicId="prismdreamfactory/bg"
             poster={bg}
             quality="90:qmax_20"
+          />*/}
+
+          <video
+            className="app__bg app__bg--video"
+            src={bgVideo}
+            autoPlay
+            loop
+            muted
+            playsInline
           />
 
           <header className="app__header">
@@ -103,8 +114,8 @@ class App extends Component {
           </header>
 
           <nav className="nav--desktop">
-            <NavLink to="/" className="app__link mod--top-left" exact>
-              <span>Prism Dream Factory</span>
+            <NavLink to="/services" className="app__link mod--top-left">
+              <span>Services</span>
             </NavLink>
             <NavLink to="/about" className="app__link mod--top-right">
               <span>About</span>
@@ -123,7 +134,7 @@ class App extends Component {
               ref={el => this.mobileNavLinks.push(el)}
             >
               <Link
-                to="/"
+                to="/services"
                 className="app__link"
                 onClick={this.toggleMenu}
                 ref={el => this.mobileNavLinks.push(el)}
@@ -181,6 +192,9 @@ class App extends Component {
 
           <Route path="/" exact>
             {({ match }) => <Home show={match !== null} />}
+          </Route>
+          <Route path="/services">
+            {({ match }) => <Services show={match !== null} />}
           </Route>
           <Route path="/work">
             {({ match }) => <Work show={match !== null} />}

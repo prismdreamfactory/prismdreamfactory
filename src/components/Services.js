@@ -2,30 +2,30 @@ import React, { Component } from "react";
 import { Transition } from "react-transition-group";
 import { TweenMax, TimelineMax } from "gsap";
 
-const projects = [
-  "/images/Universal.svg",
-  "/images/Verizon.svg",
-  "/images/Fox.svg",
-  "/images/Nike.svg",
-  "/images/Hurley.svg",
-  "/images/GlobalRoad.svg",
-  "/images/Mnet.svg",
-  "/images/Kcon.svg",
-  "/images/Westfield.svg"
+const services = [
+  "Business Development & Marketing Strategy",
+  "Company Branding, Sales & Investment Decks",
+  "Social Media Strategy & Management",
+  "UI & UX Design",
+  "Web & Print Design",
+  "Product Development, Apparel Design & 3D Modeling",
+  "Web & Mobile App Development",
+  "Film Production, Video/Photo Content Creation & VFX",
+  "Live Event Production"
 ];
 
-class Work extends Component {
+class Services extends Component {
   constructor(props) {
     super(props);
     this.overlay = null;
     this.content = null;
-    this.gridItems = [];
+    this.listItems = [];
   }
 
   onEnter = () => {
-    const workTL = new TimelineMax();
+    const servicesTL = new TimelineMax();
 
-    workTL
+    servicesTL
       .set(this.overlay, { autoAlpha: 0.3 })
       .set(this.content, { autoAlpha: 0 })
       .to(this.overlay, 1, {
@@ -40,7 +40,7 @@ class Work extends Component {
         autoAlpha: 0
       })
       .staggerFromTo(
-        this.gridItems,
+        this.listItems,
         0.3,
         { autoAlpha: 0 },
         { autoAlpha: 1 },
@@ -55,21 +55,19 @@ class Work extends Component {
     });
   };
 
-  renderProjects() {
+  renderServices() {
     return (
-      <div className="grid">
-        {projects.map((project, index) => (
-          <div
-            className="grid__item"
+      <ul className="services-list">
+        {services.map((service, index) => (
+          <li
+            className="services-list__item"
             key={index}
-            ref={el => (this.gridItems[index] = el)}
+            ref={el => (this.listItems[index] = el)}
           >
-            <a className="grid__link" href="/">
-              <img className="grid__img" src={project} alt="Project" />
-            </a>
-          </div>
+            {service}
+          </li>
         ))}
-      </div>
+      </ul>
     );
   }
 
@@ -82,15 +80,15 @@ class Work extends Component {
         onEnter={this.onEnter}
         onExit={this.onExit}
       >
-        <div className="page work">
+        <div className="page services">
           <div
-            className="page__overlay page__overlay--topright"
+            className="page__overlay page__overlay--bottomright"
             ref={el => (this.overlay = el)}
           />
           <div className="page__container" ref={el => (this.content = el)}>
-            <h2>Street Cred.</h2>
-            <p>These are some brands our team has worked with in the past.</p>
-            {this.renderProjects()}
+            <h2>What We Do</h2>
+
+            {this.renderServices()}
           </div>
         </div>
       </Transition>
@@ -98,4 +96,4 @@ class Work extends Component {
   }
 }
 
-export default Work;
+export default Services;
