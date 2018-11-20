@@ -1,5 +1,6 @@
 .app {
-  background-color: #383435;
+  // background-color: #383435;
+  background-color: #fff;
   width: 100%;
   height: 100vh;
   display: flex;
@@ -25,6 +26,15 @@
 
 .app__bg--video {
   object-fit: cover;
+}
+
+.app__opacity {
+  background: rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .app__logo {
@@ -183,7 +193,7 @@
 
 .nav__toggle {
   position: absolute;
-  top: 2rem;
+  top: 2.5rem;
   right: 1.5rem;
 
   @media (min-width: 769px) {
@@ -391,6 +401,7 @@
   padding: 1rem 4rem;
   font-weight: 700;
   font-size: 1rem;
+
   // @media (max-width: 768px) {
   //   flex-basis: 50%;
   // }

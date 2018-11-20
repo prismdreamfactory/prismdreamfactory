@@ -49,10 +49,7 @@ class Contact extends Component {
             ref={el => (this.overlay = el)}
           />
           <div className="page__container" ref={el => (this.content = el)}>
-            <h3>
-              If you are interested in taking your business <br /> to the next
-              level, let's get in touch.
-            </h3>
+            <h3>Interested in partnering with us?</h3>
 
             <a href="mailto:dennis@prismgateway.com">dennis@prismgateway.com</a>
           </div>

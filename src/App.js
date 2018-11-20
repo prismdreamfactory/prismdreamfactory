@@ -93,6 +93,8 @@ class App extends Component {
             quality="80:qmax_20"
           />
 
+          <div className="app__opacity" />
+
           {/*}<video
             className="app__bg app__bg--video"
             src={bgVideo}
@@ -129,6 +131,19 @@ class App extends Component {
           </nav>
 
           <nav className="nav--mobile" ref={el => (this.mobileNav = el)}>
+            <div
+              className="app__link-wrapper"
+              ref={el => this.mobileNavLinks.push(el)}
+            >
+              <Link
+                to="/"
+                className="app__link"
+                onClick={this.toggleMenu}
+                ref={el => this.mobileNavLinks.push(el)}
+              >
+                Home
+              </Link>
+            </div>
             <div
               className="app__link-wrapper"
               ref={el => this.mobileNavLinks.push(el)}
@@ -183,7 +198,6 @@ class App extends Component {
               className={isOpen ? "nav__icon mod--open" : "nav__icon"}
               onClick={this.toggleMenu}
             >
-              <span />
               <span />
               <span />
               <span />

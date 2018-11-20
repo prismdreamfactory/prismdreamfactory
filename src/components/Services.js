@@ -4,7 +4,7 @@ import { TweenMax, TimelineMax } from "gsap";
 
 const services = [
   "Business Development & Marketing Strategy",
-  "Company Branding, Sales & Investment Decks",
+  "Branding Guidelines, Sales & Investment Decks",
   "Social Media Strategy & Management",
   "UI & UX Design",
   "Web & Print Design",

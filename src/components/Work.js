@@ -64,9 +64,9 @@ class Work extends Component {
             key={index}
             ref={el => (this.gridItems[index] = el)}
           >
-            <a className="grid__link" href="/">
-              <img className="grid__img" src={project} alt="Project" />
-            </a>
+            {/*}<a className="grid__link" href="/">*/}
+            <img className="grid__img" src={project} alt="Project" />
+            {/*</a>*/}
           </div>
         ))}
       </div>
