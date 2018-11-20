@@ -14,7 +14,7 @@ import Work from "./components/Work";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import bg from "./assets/images/bg.jpg";
-import bgVideo from "./assets/videos/bg.mp4";
+// import bgVideo from "./assets/videos/bg-clouds.mp4";
 import logo from "./assets/images/logo.png";
 
 class App extends Component {
@@ -81,26 +81,26 @@ class App extends Component {
             }}
           />*/}
 
-          {/*}<Video
+          <Video
             className="app__bg app__bg--video"
             autoPlay
             loop
             muted
             playsInline
             cloudName="prismdreamfactory"
-            publicId="prismdreamfactory/bg"
+            publicId="prismdreamfactory/bg-clouds"
             poster={bg}
-            quality="90:qmax_20"
-          />*/}
+            quality="80:qmax_20"
+          />
 
-          <video
+          {/*}<video
             className="app__bg app__bg--video"
             src={bgVideo}
             autoPlay
             loop
             muted
             playsInline
-          />
+          />*/}
 
           <header className="app__header">
             <Link to="/">
@@ -115,13 +115,13 @@ class App extends Component {
 
           <nav className="nav--desktop">
             <NavLink to="/services" className="app__link mod--top-left">
-              <span>Services</span>
+              <span>What We Do</span>
             </NavLink>
             <NavLink to="/about" className="app__link mod--top-right">
               <span>About</span>
             </NavLink>
             <NavLink to="/work" className="app__link mod--bottom-left">
-              <span>Work</span>
+              <span>Our Work</span>
             </NavLink>
             <NavLink to="/contact" className="app__link mod--bottom-right">
               <span>Contact</span>
@@ -139,7 +139,7 @@ class App extends Component {
                 onClick={this.toggleMenu}
                 ref={el => this.mobileNavLinks.push(el)}
               >
-                Home
+                What We Do
               </Link>
             </div>
             <div
@@ -152,7 +152,7 @@ class App extends Component {
                 onClick={this.toggleMenu}
                 ref={el => this.mobileNavLinks.push(el)}
               >
-                Work
+                Our Work
               </Link>
             </div>
             <div
