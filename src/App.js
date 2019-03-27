@@ -15,7 +15,7 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import bg from "./assets/images/bg.jpg";
 // import bgVideo from "./assets/videos/bg-clouds.mp4";
-import logo from "./assets/images/logo.png";
+import logo from "./assets/images/logo-s.svg";
 
 class App extends Component {
   constructor(props) {

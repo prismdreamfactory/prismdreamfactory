@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { Transition } from "react-transition-group";
-import { TweenMax, TimelineMax } from "gsap";
+import React, { Component } from 'react';
+import { Transition } from 'react-transition-group';
+import { TweenMax, TimelineMax } from 'gsap';
 
 class Contact extends Component {
   constructor(props) {
@@ -17,8 +17,8 @@ class Contact extends Component {
       .set(this.content, { autoAlpha: 0 })
       .to(this.overlay, 1, {
         skewX: 0,
-        x: "-100%",
-        transformOrigin: "0% 0%"
+        x: '-100%',
+        transformOrigin: '0% 0%'
       })
       .to(this.content, 0.3, {
         autoAlpha: 1
@@ -51,7 +51,9 @@ class Contact extends Component {
           <div className="page__container" ref={el => (this.content = el)}>
             <h3>Interested in partnering with us?</h3>
 
-            <a href="mailto:dennis@prismgateway.com">dennis@prismgateway.com</a>
+            <a href="mailto:dennis@prismdreamfactory.com">
+              dennis@prismdreamfactory.com
+            </a>
           </div>
         </div>
       </Transition>
